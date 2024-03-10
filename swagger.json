@@ -1,0 +1,63 @@
+{
+  "definition": {
+    "openapi": "3.1.0",
+    "info": {
+      "title": "Locale Api",
+      "version": "1.0.1",
+      "description": "Locale's Official Api."
+    },
+    "servers": [
+      {
+        "url": "http://localhost:4000"
+      }
+    ],
+    "paths": {
+      "/search": {
+        "get": {
+          "summary": "Get all states",
+          "responses": {
+            "200": {
+              "description": "A list of states",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/State"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "State": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "example": "Retrieved list of states successfully."
+            },
+            "data": {
+              "type": "object",
+              "example": {
+                "states": [
+                  {
+                    "name": "Abia",
+                    "population": 2833999,
+                    "capital": "Umuahia"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "apis": ["./routes/*.js"]
+}
